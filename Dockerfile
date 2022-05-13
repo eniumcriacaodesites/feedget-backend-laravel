@@ -46,8 +46,6 @@ RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
-RUN cp .env.example .env && php artisan key:generate
-
 # Set working directory
 WORKDIR /var/www
 
