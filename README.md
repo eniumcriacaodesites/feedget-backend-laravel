@@ -56,7 +56,7 @@ php artisan key:generate
 ```
 
 
-Rode as migrations
+Rodar migrations
 ```sh
 php artisan migrate
 ```
