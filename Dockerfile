@@ -46,15 +46,20 @@ RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
-RUN cp /var/www/.env.example .env
+# RUN cp /var/www/.env.example .env
 
 # Set working directory
 WORKDIR /var/www
 
 RUN chmod -R 765 /var/www/
 
-RUN composer install
+# RUN composer install
 
-EXPOSE 80 443
+COPY docker/start-container /usr/local/bin/start-container
+RUN chmod +x /usr/local/bin/start-container
+
+EXPOSE 8000
+
+ENTRYPOINT ["start-container"]
 
 USER $user
