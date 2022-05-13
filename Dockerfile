@@ -51,6 +51,10 @@ RUN cp /var/www/.env.example .env
 # Set working directory
 WORKDIR /var/www
 
+RUN chmod -R 765 /var/www/
+
 RUN composer install
+
+EXPOSE 80 443
 
 USER $user
