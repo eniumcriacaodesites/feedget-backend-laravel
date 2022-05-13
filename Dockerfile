@@ -53,6 +53,4 @@ WORKDIR /var/www
 
 RUN composer install
 
-RUN php artisan key:generate
-
 USER $user
