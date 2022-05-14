@@ -68,23 +68,6 @@ services:
         networks:
             - laravel-9
 
-    node:
-        container_name: feedget-node
-        build: ./docker/node
-        image: node:alpine
-        restart: unless-stopped
-        ports:
-            - "3000:3000"
-            - "35729:35729"
-        environment:
-            - /node/node_start.sh
-            - CHOKIDAR_USEPOLLING=true
-            - TZ=America/Sao_Paulo
-        volumes:
-            - ./:/var/www
-        networks:
-            - laravel-9
-
 networks:
     laravel-9:
         driver: bridge
