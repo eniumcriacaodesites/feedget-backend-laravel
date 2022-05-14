@@ -1,10 +1,10 @@
 FROM php:8.1.1-fpm
 
 # Arguments
-ARG user=carlos
+ARG user=$WWWUSER
 ARG uid=1000
 
-COPY . /var/www
+COPY . /var/www/html
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -46,7 +46,5 @@ RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
-RUN docker/start-container
-
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/html
