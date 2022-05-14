@@ -1,7 +1,7 @@
 FROM php:8.1.1-fpm
 
 # Arguments
-ARG user=$WWWUSER
+ARG user=carlos
 ARG uid=1000
 
 COPY . /var/www/html
